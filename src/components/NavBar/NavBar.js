@@ -18,7 +18,7 @@ const NavBar = () => {
                 >
                     <Nav.Link href="#action1">Estrenos</Nav.Link>
                     <Nav.Link href="#action2">Películas</Nav.Link>
-                    <Nav.Link href="#action2">Series</Nav.Link>
+                    <Nav.Link href="#action3">Series</Nav.Link>
                     
                 </Nav>
                 <Form className="d-flex">
