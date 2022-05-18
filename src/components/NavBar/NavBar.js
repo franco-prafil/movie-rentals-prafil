@@ -1,5 +1,6 @@
 import "./NavBar.css"
 import {Navbar, Nav, Container, Form, FormControl, Button} from "react-bootstrap"
+import CartWidget from "../CartWidget/CartWidget"
 
 
 
@@ -30,6 +31,7 @@ const NavBar = () => {
                     />
                     <Button variant="outline-light">Buscar</Button>
                 </Form>
+                <CartWidget />
                 </Navbar.Collapse>
             </Container>
 </Navbar>
