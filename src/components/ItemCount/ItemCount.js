@@ -2,18 +2,18 @@ import { useState } from 'react'
 import { Button  } from 'react-bootstrap';
 import './ItemCount.css';
 
-const ItemListContainer = () => {
+const ItemListCount = ({stock}) => {
     const [count, setCount] = useState(1)
-    const [stock, setStock] = useState(5)
+    // const [stock, setStock] = useState(5)
 
     const addCount = () => {
         if(count < stock) {
             setCount(count + 1)
-            setStock(stock)
+            // setStock(stock)
         }
     }
     const removeCount = () => {
-        if(count > 0) {
+        if(count > 1) {
             setCount(count - 1)
         }
     }
@@ -30,4 +30,4 @@ const ItemListContainer = () => {
     )
 }
 
-export default ItemListContainer
+export default ItemListCount

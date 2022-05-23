@@ -2,7 +2,7 @@ import './ItemListContainer.css';
 import {Card} from "react-bootstrap";
 import ItemCounts from '../ItemCount/ItemCount';
 
-const ItemListContainer = ({title, description, image }) => {
+const ItemListContainer = ({title, description, image}) => {
     return (
         <div className="d-flex justify-content-center ">
             <Card style={{ width: '18rem' }}>
@@ -12,7 +12,7 @@ const ItemListContainer = ({title, description, image }) => {
                 <Card.Text className='card-description'>
                 {description}
                 </Card.Text>
-                <ItemCounts />
+                <ItemCounts stock={5} />
             </Card.Body>
             </Card>
         </div>
