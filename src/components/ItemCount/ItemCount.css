@@ -1,0 +1,11 @@
+.count-item{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.count-item > p {
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 6px;
+    margin-bottom: 0 !important;
+}

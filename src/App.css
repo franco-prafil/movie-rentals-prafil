@@ -42,3 +42,9 @@
     transform: rotate(360deg);
   }
 }
+
+.container-cards{
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0 15px 0;
+}
