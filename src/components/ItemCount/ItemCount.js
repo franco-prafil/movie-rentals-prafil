@@ -4,12 +4,10 @@ import './ItemCount.css';
 
 const ItemListCount = ({stock}) => {
     const [count, setCount] = useState(1)
-    // const [stock, setStock] = useState(5)
 
     const addCount = () => {
         if(count < stock) {
             setCount(count + 1)
-            // setStock(stock)
         }
     }
     const removeCount = () => {

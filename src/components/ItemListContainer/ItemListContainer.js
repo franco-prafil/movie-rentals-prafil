@@ -1,20 +1,13 @@
 import './ItemListContainer.css';
-import {Card} from "react-bootstrap";
+// import {Card} from "react-bootstrap";
+import ItemList from "../ItemList/ItemList";
 import ItemCounts from '../ItemCount/ItemCount';
 
 const ItemListContainer = ({title, description, image}) => {
     return (
         <div className="d-flex justify-content-center ">
-            <Card style={{ width: '18rem' }}>
-            <Card.Img className='' variant="top" src={`./${image}`} />
-            <Card.Body>
-                <Card.Title className='card-title'>{`${title}`}</Card.Title>
-                <Card.Text className='card-description'>
-                {description}
-                </Card.Text>
-                <ItemCounts stock={5} />
-            </Card.Body>
-            </Card>
+                <ItemList />
+            
         </div>
     )
 }
