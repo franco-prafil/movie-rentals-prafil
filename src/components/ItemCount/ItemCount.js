@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { Button  } from 'react-bootstrap';
 import './ItemCount.css';
+import { useState } from 'react'
+import { Button, Container  } from 'react-bootstrap';
 
-const ItemListCount = ({stock}) => {
+const ItemListCount = ({stock, onAdd}) => {
     const [count, setCount] = useState(1)
 
     const addCount = () => {
@@ -16,14 +16,15 @@ const ItemListCount = ({stock}) => {
         }
     }
     return(
-        <div>
+        <Container>
+                            <h5 className='align-item-center mt-2'>Cantidad de Días</h5>
             <div className='d-flex justify-content-center p-3 count-item'>
                             <Button className='p-1' variant='outline-dark' onClick={removeCount}>-</Button>
                             <p className='align-item-center'>{count}</p>
                             <Button className='p-1' variant='outline-dark' onClick={addCount}>+</Button>
                         </div>
-                        <Button onClick={console.log(count)} variant="dark">Alquilar</Button>
-        </div>
+                        <Button onClick={() => onAdd (count)} variant="dark">Alquilar</Button>
+        </Container>
 
     )
 }

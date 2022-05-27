@@ -3,9 +3,11 @@ import {Card} from "react-bootstrap";
 import ItemCount from '../ItemCount/ItemCount';
 
 const Item = ({title, description, image}) => {
-
+    const onAdd = (count) => {
+        console.log(`Se agregarón ${count} productos`);
+    }
     return(
-        <div className='directio-item'>
+        <div>
             <Card style={{ width: '18rem' }}>
             <Card.Img className='' variant="top" src={`./${image}`} />
             <Card.Body>
@@ -14,7 +16,7 @@ const Item = ({title, description, image}) => {
                 {description}
                 </Card.Text>
             </Card.Body>
-            <ItemCount stock={5} />
+            <ItemCount onAdd={onAdd} stock={5} />
             </Card>
         </div>
     )

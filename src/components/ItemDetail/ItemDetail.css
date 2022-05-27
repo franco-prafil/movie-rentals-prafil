@@ -1,0 +1,22 @@
+.col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%!important;
+}
+
+.card{
+    flex-direction: row!important;
+    justify-content: space-between!important;
+}
+
+.card-title{
+    font-size: 2.25rem;
+}
+
+.card-description{
+    font-size: 1.25rem;
+}
+
+.price-detail{
+    border-radius: 3px;
+    border: solid;
+}
