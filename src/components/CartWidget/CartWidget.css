@@ -2,3 +2,12 @@
     color:white;
     margin-left: 20px;
 }
+
+.cart-widget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

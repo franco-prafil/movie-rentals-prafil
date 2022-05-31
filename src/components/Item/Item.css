@@ -9,7 +9,35 @@
     font-size: 12px;
 }
 
-/* .direction-item{
-    display: flex;
-    justify-content: space-around;
+.item-button-detail {
+    position: absolute;
+    width: 100%;
+    background: none;
+    border: none;
+    left: 0;
+    box-shadow: none;
+    bottom: 13rem;
+    background: #000000a1;
+    color: black;
+    z-index: 0;
+    border-radius: 0px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+
+
+/* .card-item .item__img-box:hover .item-button-detail {
+    opacity: 1;
+    bottom: 14rem;
 } */
+
+.item-button-detail:hover {
+    background: black;
+    box-shadow: none;
+    opacity: 1;
+    bottom: 14rem;
+} 
+
+

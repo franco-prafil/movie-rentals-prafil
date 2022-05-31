@@ -3,7 +3,7 @@ import './CartWidget.css';
 
 const CartWidget = () => {
     return(
-        <div>
+        <div className='cart-widget'>
             <ShoppingCartIcon className='cartColor' />
         </div>
     )

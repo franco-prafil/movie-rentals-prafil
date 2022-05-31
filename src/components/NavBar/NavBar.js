@@ -1,6 +1,7 @@
 import "./NavBar.css"
-import {Navbar, Nav, Container, Form, FormControl, Button} from "react-bootstrap"
+import {Navbar, Nav, Container, Form, FormControl, Button, NavDropdown} from "react-bootstrap"
 import CartWidget from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom"
 
 
 
@@ -9,7 +10,10 @@ const NavBar = () => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">MOVIE RENTALS</Navbar.Brand>
+                {/* <Navbar.Brand href="#">MOVIE RENTALS</Navbar.Brand> */}
+                <Navbar.Brand> 
+                    <Link to="/" className="text-decoration-none text-white">MOVIE RENTALS</Link>
+                </Navbar.Brand> 
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -17,11 +21,17 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">Estrenos</Nav.Link>
-                    <Nav.Link href="#action2">Películas</Nav.Link>
-                    <Nav.Link href="#action3">Series</Nav.Link>
+                    <Nav.Link>Home</Nav.Link>
+                    {/* <Nav.Link><Link to="/" className="text-decoration-none text-muted">Home</Link></Nav.Link> */}
+                    <NavDropdown title="Catálogo" id="basic-nav-dropdown">
+                        <NavDropdown.Item className=""><Link to="" >Estrenos</Link></NavDropdown.Item>
+                        <NavDropdown.Item className=""><Link to="" >Películas</Link></NavDropdown.Item>
+                        <NavDropdown.Item className=""><Link to="" >Series</Link></NavDropdown.Item>
+                    </NavDropdown>
                     
                 </Nav>
+                <Nav>
+
                 <Form className="d-flex">
                     <FormControl
                     type="search"
@@ -32,6 +42,7 @@ const NavBar = () => {
                     <Button variant="outline-light">Buscar</Button>
                 </Form>
                 <CartWidget />
+                </Nav>
                 </Navbar.Collapse>
             </Container>
 </Navbar>

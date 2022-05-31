@@ -1,30 +1,43 @@
 import {useState, useEffect} from "react"
-import { producto } from "../../utils/customFetch";
+// import { productos } from "../../utils/customFetch";
+import getProducts from "../../utils/customFetch";
 import ItemDetail from "../ItemDetail/ItemDetail";
-// import {  } from "module";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ItemDetailContainer = () =>{
+    const { id } = useParams()
+    const navigate = useNavigate()
     const [product, setProduct] = useState ({})
 
-    const getItem = () => {
-        return new Promise ((resolve, reject)=>{
-            setTimeout(() => {
-                resolve(producto)
-            }, 2000);
-        })
-    }
+    // const getItem = () => {
+    //     return new Promise ((resolve, reject)=>{
+    //         setTimeout(() => {
+    //             resolve(producto)
+    //         }, 2000);
+    //     })
+    // }
 
     useEffect(() => {
-        getItem()
-        .then( (res) => {
-            setProduct(res)
-        })
-    }, [])
+    //     getItem()
+    //     .then( (res) => {
+    //         setProduct(res)
+    //     })
+    // }, [])
+    if(productFilter === undefined){
+        navigate('/notFound')
+    }else {
+        setProduct(productFilter)
+    }
+}, [id])
+
+const productFilter = getProducts.find( (product) => {
+    return product.id == id
+})
 
     return(
         <>
-            {/* <div> ItemDetail</div> */}
-            <ItemDetail data={product}/>
+            {Object.keys(product).length > 0 && <ItemDetail data={product}/>}
+
         </>
     )
 }
