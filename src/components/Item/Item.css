@@ -1,12 +1,20 @@
 .card-title {
-    font-size: 16px;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 3px;
+    border: solid;
+    background-color: black;
+    color: white;
 }
 
-.card-description{
-    font-size: 12px;
+.item-size{
+    height: 25rem;
+}
+
+.card-category{
+    font-size: 1.1rem;
 }
 
 .item-button-detail {
@@ -16,12 +24,12 @@
     border: none;
     left: 0;
     box-shadow: none;
-    bottom: 13rem;
+    bottom: 15.8rem;
     background: #000000a1;
-    color: black;
+    color: gray;
     z-index: 0;
     border-radius: 0px;
-    opacity: 0;
+    
     transition: all 0.3s ease;
 }
 
@@ -33,11 +41,11 @@
     bottom: 14rem;
 } */
 
-.item-button-detail:hover {
+/* .item-button-detail:hover {
     background: black;
     box-shadow: none;
     opacity: 1;
-    bottom: 14rem;
-} 
+    bottom: 15rem;
+}  */
 
 

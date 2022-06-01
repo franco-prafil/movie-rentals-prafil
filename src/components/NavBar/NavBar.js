@@ -21,12 +21,12 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link>Home</Nav.Link>
-                    {/* <Nav.Link><Link to="/" className="text-decoration-none text-muted">Home</Link></Nav.Link> */}
+                    {/* <Nav.Link>Home</Nav.Link> */}
+                    <Nav.Link><Link to="/" className="text-decoration-none text-muted">Home</Link></Nav.Link>
                     <NavDropdown title="Catálogo" id="basic-nav-dropdown">
-                        <NavDropdown.Item className=""><Link to="" >Estrenos</Link></NavDropdown.Item>
-                        <NavDropdown.Item className=""><Link to="" >Películas</Link></NavDropdown.Item>
-                        <NavDropdown.Item className=""><Link to="" >Series</Link></NavDropdown.Item>
+                        <NavDropdown.Item className=""><Link to={`/category/Estrenos`} className="text-decoration-none text-muted" >Estrenos</Link></NavDropdown.Item>
+                        <NavDropdown.Item className=""><Link to={`/category/Peliculas`} className="text-decoration-none text-muted" >Películas</Link></NavDropdown.Item>
+                        <NavDropdown.Item className=""><Link to={`/category/Series`} className="text-decoration-none text-muted" >Series</Link></NavDropdown.Item>
                     </NavDropdown>
                     
                 </Nav>

@@ -1,23 +1,47 @@
-.ItemDetail .Container .Card{
+/* .ItemDetail .Container .Card{
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 
-.ItemDetail .Container .Card .Card.Img .col-4 {
+.col-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 60%!important;
 }
 
 
-.ItemDetail .Container .Card .Card.Body .Card.Title .card-title{
-    font-size: 2.25rem;
+.card-detail-title{
+    font-size: 1.8rem;
+    border-radius: 3px;
+    border: solid;
+    background-color: black;
+    color: white;
+    margin-bottom: 2rem;
 }
 
-.ItemDetail .Container .Card .Card.Body .Card.Text .card-description{
+.card-detail-category{
+    font-size: 1.50rem;
+    margin-bottom: 2rem;
+}
+
+.card-detail-description{
     font-size: 1.25rem;
+    border-radius: 3px;
+    border: solid;
+    margin-bottom: 2rem;
+}
+
+.card-text-price{
+    font-size: 1.4rem;
+    border-radius: 3px;
+    border: solid;
+    background-color: black;
+    color: white;
+    margin-bottom: 1.6rem;
 }
 
 .price-detail{
+    font-size: 1.6rem;
     border-radius: 3px;
     border: solid;
+    margin-bottom: 2rem;
 }

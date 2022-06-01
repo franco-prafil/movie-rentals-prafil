@@ -2,25 +2,27 @@ import "./ItemDetail.css"
 import { Card, Container } from "react-bootstrap"
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetail = ({data, stock}) => {
+const ItemDetail = ({data}) => {
 
     return (
         <>
         <Container className="d-flex justify-content-center">
-        <Card className="" style={{ width: '80%' }} >
+        <Card className=" flex-row  " style={{ width: '60%' }} >
         
-        <Card.Img className="col-4" src={data.image} /> 
+        <Card.Img className="col-4" src={`/${data.image}`} /> 
 
         <Card.Body>
 
-        <Card.Title className='card-title'>{data.title}</Card.Title>
-        <Card.Text className='card-description'>{data.category}</Card.Text>
-        <Card.Text className=''>{data.description}</Card.Text>
-        <Card.Text className='h3 pb-2'>Precio por Día</Card.Text>
-        <span className="price-detail h4 p-1 mb-1"  >$800</span>
+        <Card.Title className='card-detail-title'>{data.title}</Card.Title>
+        <Card.Text className='card-detail-category'>Categoría: {data.category}</Card.Text>
+        <Card.Text className='card-detail-description'>{data.description}</Card.Text>
+        <Card.Text className='card-text-price'>Precio por Día</Card.Text>
+        <span className="price-detail p-1"  >$800</span>
 
-        
-        <ItemCount stock={5}  />
+        <div className="mt-5">
+
+        <ItemCount  stock={5}  />
+        </div>
         </Card.Body>
         </Card>
 

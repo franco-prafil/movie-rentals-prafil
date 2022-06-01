@@ -3,7 +3,7 @@
         {
             id: 1,
             title : 'Star Wars: The Force Awakens',
-            category: 'Película',
+            category: 'Peliculas',
             description: 'Tres décadas después de la derrota del Imperio, surge una nueva amenaza en la Primera Orden militante. El soldado de asalto Finn y Rey están atrapados en la búsqueda de la Resistencia por el desaparecido Luke Skywalker.',
             image: 'star_wars_1.jpg',
             stock: '5',
@@ -12,8 +12,8 @@
         {
             id: 2,
             title : 'Star Wars: The Last Jedi',
-            category: 'Película',
-            description: '',
+            category: 'Peliculas',
+            description: 'Rey desarrolla sus habilidades con la guía de Luke Skywalker, quien está desconcertado por la fuerza de sus poderes. Mientras tanto, la Resistencia se prepara para la batalla con la Primera Orden.',
             image: 'star_wars_2.jpg',
             stock: '5',
         },
@@ -21,16 +21,16 @@
         {
             id: 3,
             title : 'Star Wars: The Rise Of Skywalker',
-            category: 'Película',
-            description: '',
+            category: 'Peliculas',
+            description: 'La resistencia sobreviviente se enfrenta una vez más a la Primera Orden en el último capítulo de la saga de Skywalker.',
             image: 'star_wars_3.jpg',
             stock: '5',
         },
 
         {
             id: 4,
-            title : 'Estreno 1',
-            category: 'Estreno',
+            title : 'Top Gun: Maverick',
+            category: 'Estrenos',
             description: '',
             image: 'top_gun.jpg',
             stock: '5',
@@ -38,8 +38,8 @@
 
         {
             id: 5,
-            title : 'Estreno 2',
-            category: 'Estreno',
+            title : 'Thor: Love and Thunder',
+            category: 'Estrenos',
             description: '',
             image: 'thor.jpg',
             stock: '5',
@@ -47,8 +47,8 @@
 
         {
             id: 6,
-            title : 'Estreno 3',
-            category: 'Estreno',
+            title : 'Animales Fantastios: Los Secretos de Dumbledore',
+            category: 'Estrenos',
             description: '',
             image: 'animales_fantasticos.jpg',
             stock: '5',
@@ -56,7 +56,7 @@
 
         {
             id: 7,
-            title : 'Serie 1',
+            title : 'Stranger Things',
             category: 'Series',
             description: '',
             image: 'stranger_things.jpg',
@@ -65,7 +65,7 @@
 
         {
             id: 8,
-            title : 'Serie 2',
+            title : 'Andor',
             category: 'Series',
             description: '',
             image: 'andor.jpg',
@@ -74,7 +74,7 @@
 
         {
             id: 9,
-            title : 'Serie 3',
+            title : 'Game of Thrones',
             category: 'Series',
             description: '',
             image: 'game_of_throne.jpg',
@@ -82,14 +82,14 @@
         }
         ]
 
-        const producto = {
-            id: 1,
-            title : 'Star Wars: The Force Awakens',
-            category: 'Película',
-            description: 'Tres décadas después de la derrota del Imperio, surge una nueva amenaza en la Primera Orden militante. El soldado de asalto Finn y Rey están atrapados en la búsqueda de la Resistencia por el desaparecido Luke Skywalker.',
-            image: 'star_wars_1.jpg',
-            stock: '5',
-        }
+        // const producto = {
+        //     id: 1,
+        //     title : 'Star Wars: The Force Awakens',
+        //     category: 'Película',
+        //     description: 'Tres décadas después de la derrota del Imperio, surge una nueva amenaza en la Primera Orden militante. El soldado de asalto Finn y Rey están atrapados en la búsqueda de la Resistencia por el desaparecido Luke Skywalker.',
+        //     image: 'star_wars_1.jpg',
+        //     stock: '5',
+        // }
         
         const getProducts = () =>{
             return new Promise ((resolve, reject)=> {
@@ -101,4 +101,4 @@
 
 export default getProducts
 
-export {producto}
+export {productos}

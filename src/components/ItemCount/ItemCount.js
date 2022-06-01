@@ -18,12 +18,12 @@ const ItemListCount = ({stock, onAdd}) => {
     return(
         <Container>
                             <h5 className='align-item-center mt-2'>Cantidad de Días</h5>
-            <div className='d-flex justify-content-center p-3 count-item'>
+            <div className='d-flex justify-content-center p-2 count-item'>
                             <Button className='p-1' variant='outline-dark' onClick={removeCount}>-</Button>
                             <p className='align-item-center'>{count}</p>
                             <Button className='p-1' variant='outline-dark' onClick={addCount}>+</Button>
                         </div>
-                        <Button onClick={() => onAdd (count)} variant="dark">Alquilar</Button>
+                        <Button className='mb-2' onClick={() => onAdd (count)} variant="dark">Alquilar</Button>
         </Container>
 
     )

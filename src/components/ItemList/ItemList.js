@@ -37,7 +37,7 @@ const ItemList = ({products}) => {
                     },
                     1024: {
                         slidesPerView: 3,
-                        spaceBetween: 75,
+                        spaceBetween: 70,
                     },
                     }}
                     
@@ -49,7 +49,7 @@ const ItemList = ({products}) => {
                                     <>
 
                                     <SwiperSlide key={id}>
-                                        <Item className="direction-item" title={title} category={category} image={image}/>
+                                        <Item className="direction-item" title={title} category={category} image={image} id={id}/>
                                     </SwiperSlide>
                                     {/* <SwiperSlide key={id}>
                                         <Item className="direction-item" title={title} category={category} image={image}/>
