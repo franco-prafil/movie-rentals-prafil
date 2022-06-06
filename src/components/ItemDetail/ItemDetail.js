@@ -1,8 +1,11 @@
 import "./ItemDetail.css"
-import { Card, Container } from "react-bootstrap"
+import { useState } from 'react'
+import { Link } from "react-router-dom"
+import { Card, Container, Button } from "react-bootstrap"
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({data}) => {
+    const [showButton, setShowButton] = useState(false)
 
     return (
         <>
@@ -21,7 +24,13 @@ const ItemDetail = ({data}) => {
 
         <div className="mt-5">
 
-        <ItemCount  stock={5}  />
+        {!showButton ? 
+        <ItemCount  stock={5}  setShowButton={setShowButton}/> :
+        <Button className='mb-2' variant="dark">
+            <Link to='/cart' className="text-decoration-none text-white">Finalizar Mi Compra</Link>
+        </Button> 
+        }
+        
         </div>
         </Card.Body>
         </Card>
