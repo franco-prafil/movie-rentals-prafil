@@ -16,7 +16,7 @@ Esta es una aplicación e-commerce creada con [Create React App](https://github.
 - Abrir tu terminal y poner el comando de git clone
 - Entrar a la carpeta del proyecto y abrirlo en tu IDE
 
-![image](https://github.com/franco-prafil/movie-rentals-prafil/tree/main/public/movie-rentals.gif)
+![image](https://github.com/franco-prafil/movie-rentals-prafil/blob/main/public/movie-rentals.gif)
 
 
 
