@@ -6,7 +6,7 @@ import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({data}) => {
     const [showButton, setShowButton] = useState(false)
-
+    
     return (
         <>
         <Container className="d-flex justify-content-center">
