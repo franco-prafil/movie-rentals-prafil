@@ -24,10 +24,12 @@
 }
 
 .card-detail-description{
-    font-size: 1.25rem;
+    font-size: 0.7rem;
     border-radius: 3px;
     border: solid;
     margin-bottom: 2rem;
+    text-align: left;
+    padding: 5px;
 }
 
 .card-text-price{
