@@ -10,7 +10,7 @@ const CartProvider = ({children}) => {
         if(!isInCart) {
             console.log("se agrego el producto:", product)
             // setTotalPrice(totalPrice + product.price)
-            return setCartListItems(cartListItems => [...cartListItems, product])
+            setCartListItems([...cartListItems, product])
         }
     }
 

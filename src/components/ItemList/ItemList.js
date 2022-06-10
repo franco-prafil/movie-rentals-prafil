@@ -44,12 +44,12 @@ const ItemList = ({products}) => {
                     className="mySwiper"
                 >
                         {
-                            products.map( ({title, category, image, id}) => {
+                            products.map( ({title, category, image, id, stock, price}) => {
                                 return(
                                     <>
 
                                     <SwiperSlide key={id}>
-                                        <Item className="direction-item" title={title} category={category} image={image} id={id}/>
+                                        <Item className="direction-item" title={title} category={category} image={image} id={id} stock={stock} price={price}/>
                                     </SwiperSlide>
                                     {/* <SwiperSlide key={id}>
                                         <Item className="direction-item" title={title} category={category} image={image}/>

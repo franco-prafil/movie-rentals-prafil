@@ -1,12 +1,9 @@
 import './Item.css';
-import { useContext } from 'react';
-import CartContext from '../../context/CartContext';
 import { Card, Button } from "react-bootstrap";
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 const Item = ({title, category, image, price, stock, id}) => {
-    const { addProductToCart } = useContext(CartContext)
     const onAdd = (count) => {
         console.log(`Se agregarón ${count} productos`);
     }
@@ -25,7 +22,7 @@ const Item = ({title, category, image, price, stock, id}) => {
                 {category}
                 </Card.Text>
             </Card.Body>
-            <ItemCount onClick={() => addProductToCart({ image, title, price, stock, id})} onAdd={onAdd} stock={5} />
+            <ItemCount product={{ title, category, image, price, stock, id}} onAdd={onAdd} stock={5} />
             </Card>
         </div>
     )
