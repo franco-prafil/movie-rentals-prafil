@@ -1,12 +1,12 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import CartContext from "../context/CartContext";
 import './Cart.css'
 import { Container, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Cart = () =>{
-    const { cartListItems, totalPrice, deleteItemCart } = useContext(CartContext)
-
+const Cart = () => {
+    const { cartListItems, totalPrice, deleteItem } = useContext(CartContext)
+    console.log("listado de productos:", cartListItems);
         return(
             <Container className='container-general'> 
             <h2>Checkout: </h2>
@@ -18,8 +18,17 @@ const Cart = () =>{
                     <h2>Cantidad</h2>
                     <h2>Quitar</h2>
                 </div>
+
+                <div>
+                    {cartListItems.length === 0 &&
+                    <div>
+                    <p>Carrito Vacio</p>
+                    </div>
+                    }
+                </div>
                 {cartListItems.map( (item) => {
                     const {id, title, image, price, quantity} = item
+                    console.log(item)
                     return(
                         <div className='cart-table__content' key={id}>
                             <div className='cart-table__content-img'>
@@ -35,7 +44,7 @@ const Cart = () =>{
                                 <p>{quantity}</p>
                             </div>
                             <div className='cart-table__content-price'>
-                                <button className='btn-delete' onClick={() => deleteItemCart(item.id)}>
+                                <button className='btn-delete' onClick={() => deleteItem(item.id)}>
                                     <DeleteIcon />
                                 </button>
                             </div>

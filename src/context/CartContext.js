@@ -21,9 +21,9 @@ const CartProvider = ({children}) => {
     //         )
     //     }
 
-    const deleteItem = (productId) => {
+    const deleteItem = (id) => {
         const copyCartListItems = [...cartListItems]
-        const deleteItemCart = copyCartListItems.filter((product) => product.id !== productId);
+        const deleteItemCart = copyCartListItems.filter((product) => product.id !== id);
         setCartListItems(deleteItemCart);
     
         

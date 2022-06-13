@@ -27,7 +27,7 @@ const ItemDetail = ({data}) => {
         {!showButton ? 
         <ItemCount  stock={5}  setShowButton={setShowButton}/> :
         <Button className='mb-2' variant="dark">
-            <Link to='/cart' className="text-decoration-none text-white">Finalizar Mi Compra</Link>
+            <Link to='/cart'  className="text-decoration-none text-white">Finalizar Mi Compra</Link>
         </Button> 
         }
         
