@@ -3,11 +3,11 @@ import { useState, useContext } from 'react'
 import { Button, Container  } from 'react-bootstrap';
 import CartContext from '../../context/CartContext'
 
-const ItemListCount = ({product, onAdd, setShowButton}) => {
+const ItemListCount = ({stock, product, onAdd, setShowButton}) => {
     const [count, setCount] = useState(1)
     const {addProductToCart} = useContext(CartContext)
-
-    const {title, category, image, price, stock, id} = product;
+    
+    // const {title, category, image, price, stock, id} = product;
 
     const addCount = () => {
         if(count < stock) {
@@ -27,7 +27,7 @@ const ItemListCount = ({product, onAdd, setShowButton}) => {
                             <p className='align-item-center'>{count}</p>
                             <Button className='p-1' variant='outline-dark' onClick={addCount}>+</Button>
                         </div>
-                        <Button className='mb-2' onClick={() => addProductToCart({...product, quantity: count})} variant="dark">Agregar Producto</Button>
+                        <Button className='mb-2'  onClick={() => {addProductToCart({...product, quantity: count}); onAdd (); setShowButton()}} variant="dark">Agregar Producto</Button>
                         {/* <Button className='mb-2' onClick={() => setShowButton(true)} variant="dark">Agregar Producto</Button> */}
 
         </Container>
