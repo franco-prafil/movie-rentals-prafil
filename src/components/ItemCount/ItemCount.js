@@ -6,6 +6,7 @@ import CartContext from '../../context/CartContext'
 const ItemListCount = ({stock, product, setShowButton}) => {
     const [count, setCount] = useState(1)
     const {addProductToCart} = useContext(CartContext)
+    // console.log("este es el producto", product);
     
     // const {title, category, image, price, stock, id} = product;
 

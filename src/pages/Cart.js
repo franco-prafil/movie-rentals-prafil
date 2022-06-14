@@ -1,71 +1,87 @@
 import { useContext } from "react";
 import CartContext from "../context/CartContext";
 import './Cart.css'
-import { Container, Button } from '@mui/material';
+import { Table, Button } from "react-bootstrap";
+import { Container } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { cartListItems, totalPrice, deleteItem } = useContext(CartContext)
     console.log("listado de productos:", cartListItems);
         return(
-            <Container className='container-general'> 
+            <Container> 
             <h2>Checkout: </h2>
-            <div className='cart-section'>
-                <div className='col-cart-table__head'>
-                    <h2>Producto</h2>
-                    <h2>Descripcion</h2>
-                    <h2>Precio Unitario</h2>
-                    <h2>Cantidad</h2>
-                    <h2>Quitar</h2>
-                </div>
+            
+            <Table striped>
+                <thead className="table-dark">
+                    <tr>
+                        <th >Producto</th>
+                        <th >Descripcion</th>
+                        <th >Cantidad</th>
+                        <th >Precio Unitario</th>
+                        <th >Quitar</th>
+                    </tr>
+                </thead>
 
-                <div>
-                    {cartListItems.length === 0 &&
-                    <div>
-                    <p>Carrito Vacio</p>
-                    </div>
-                    }
-                </div>
                 {cartListItems.map( (item) => {
                     const {id, title, image, price, quantity} = item
                     console.log(item)
                     return(
-                        <div className='cart-table__content' key={id}>
-                            <div className='cart-table__content-img'>
-                                <img src={`/${image}`} alt="productos" />
-                            </div>
-                            <div className='cart-table__content-title'>
-                                <p>{title}</p>
-                            </div>
-                            <div className='cart-table__content-price'>
-                                <p>$ {price}</p>
-                            </div>
-                            <div className='cart-table__content-quantity'>
-                                <p>{quantity}</p>
-                            </div>
-                            <div className='cart-table__content-price'>
-                                <button className='btn-delete' onClick={() => deleteItem(item.id)}>
+                        <tbody key={id}>
+                        <tr>
+                            <td className="col-2">
+                                <img className="img-cart" src={`/${image}`} alt="productos" />
+                            </td>
+                            <td> 
+                                <p className="p-cart">{title}</p>
+                            </td>
+                            <td>
+                                <p className="p-cart">{quantity}</p>
+                            </td>
+                            <td>
+                                <p className="p-cart">$ {price}</p>
+                            </td>
+                            <td>
+                                <Button className='p-cart' variant="contained" color="primary" onClick={() => deleteItem(item.id)}>
                                     <DeleteIcon />
-                                </button>
-                            </div>
-                        </div>
+                                </Button>
+                            </td>
+                        </tr>
+                        </tbody>
                     )
                 })}
-                <div className='cart-footer'>
-                    <Button className='btn-custom'>Continuar comprando</Button>
-                    <div className='cart-checkout-details'>
-                        <div className='cart-checkout__subtotal'>
-                            <p>Subtotal</p>
-                            <span>$ {totalPrice}</span>
-                        </div>
-                        <div className='cart-checkout__total'>
-                            <p>Total</p>
-                            <span>$ {totalPrice}</span>
-                        </div>
-                        <Button className='btn-custom'>Completar Compra</Button>
+                </Table>
+                <Container className="container-pop"> 
+                <div>
+                    {cartListItems.length === 0 &&
+                    <div>
+                    <p className="p-pop-cart">No Hay Productos Agregados</p>
                     </div>
+                    }
                 </div>
-            </div>
+                </Container>
+                        <Container  className="container-button"> 
+                            <div className="div-button">
+                                <div className="price-total-cart p-1"> 
+                                    <p className="d-flex align-items-center mb-0">Subtotal: </p>
+                                    <span > $ {totalPrice()}</span>
+                                </div>
+                    
+                                <div className="price-total-cart p-1"> 
+
+                                <p className="d-flex align-items-center mb-0">Total</p>
+                                <span>$ {totalPrice()}</span>
+                                </div>
+                            </div>
+                        </Container>
+                        <Container  className="container-button"> 
+                        <div className="div-button">    
+                        <Link to="/"><Button className='mb-2' variant="dark">Continuar Comprando</Button></Link> 
+                        <Button className='mb-2' variant="dark">Completar Compra</Button>
+                        </div>
+                        </Container>    
+            
         </Container>
         )
     }
