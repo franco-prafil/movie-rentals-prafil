@@ -101,14 +101,14 @@
         ]
 
         
-        const getProducts = () =>{
-            return new Promise ((resolve, reject)=> {
-                setTimeout(() => {
-                    resolve(productos)
-                }, 2000);
-            })
-        }
+        // const getProducts = () =>{
+        //     return new Promise ((resolve, reject)=> {
+        //         setTimeout(() => {
+        //             resolve(productos)
+        //         }, 2000);
+        //     })
+        // }
 
-export default getProducts
+// export default getProducts
 
-export {productos}
+// export {productos}

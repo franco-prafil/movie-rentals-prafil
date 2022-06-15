@@ -1,8 +1,13 @@
-import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import ItemList from "../components/ItemList/ItemList";
-import getProducts from "../utils/customFetch";
 import { useParams } from "react-router-dom";
+import { Container } from "react-bootstrap";
+// Firestore
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../utils/firebaseConfig";
+// Components
+import ItemList from "../components/ItemList/ItemList";
+
+// import getProducts from "../utils/customFetch";
 
 const CategoryItemList = ({category}) => {
     const [products, setProducts] = useState([])
@@ -11,11 +16,12 @@ const CategoryItemList = ({category}) => {
     
     useEffect(()=> {
         setProducts([])
-        getProducts()
-        .then((response)=>{
-            filterByCategory(response)
+        getProduct()
+        filterFirebase()
+        .then((productos)=>{
+            category ? filterFirebase(productos) : setProducts(productos)
         })
-        .catch((err)=>{
+        .catch(()=>{
 
         })
         .finally(()=>{
@@ -23,13 +29,37 @@ const CategoryItemList = ({category}) => {
         })
     }, [id])
 
-    const filterByCategory = (array) =>{
-        return array.map( (item) => {
-            if(item.category == id){
-                return setProducts(products => [...products, item])
-            }
+
+        const getProduct = async () => {
+            const filterSnapshot = await getDocs(collection(db, "productos"));
+            const filterList = filterSnapshot.docs.map( (doc) => {
+                let product = doc.data()
+                product.id = doc.id
+                return product
+            })
+            return filterList
+        }
+
+    // const filterByCategory = (array, id) =>{
+    //     return array.map( (item) => {
+    //         if(item.category == id){
+    //             return setProducts(products => [...products, item])
+    //         }
+    //     })
+    // }
+
+    const filterFirebase = async () => {
+        const productRef = collection(db, 'productos')
+        const queryResult = query(productRef, where("category", "==" , id));
+        const querySnapshot = await getDocs(queryResult);
+        const productList = querySnapshot.docs.map ((doc) => {
+            let product = doc.data ()
+            product.id = doc.id
+            return product
         })
+        return (productList)
     }
+
     return (
         <> 
         <Container>
