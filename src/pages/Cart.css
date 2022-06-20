@@ -41,16 +41,20 @@
     flex-direction: column;
 }
 
-.form.form-contact {
+form.form-contact {
     display: flex;
     flex-direction: column;
 }
 
-.form.form-contact > div {
+form.form-contact > div {
     margin-bottom: 15px;
 }
 
-.form.form-contact button {
+.order-id{
+    font-size: 1.5rem;
+}
+
+form.form-contact button {
     background: black;
     border-radius: 40px;
     text-transform: none;

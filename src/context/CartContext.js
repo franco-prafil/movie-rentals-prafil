@@ -4,21 +4,22 @@ const CartContext = createContext()
 
 const CartProvider = ({children}) => {
     const [cartListItems, setCartListItems] = useState([])
-    // const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const addProductToCart = (product) => {
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
         if(!isInCart) {
             // console.log("se agrego el producto:", product)
-            // setTotalPrice(totalPrice + product.price * product.quantity)
-            setCartListItems([...cartListItems, product])
+            setTotalPrice(totalPrice + product.price)
+            localStorage.setItem('products', JSON.stringify([...cartListItems, product]))
+            return setCartListItems(cartListItems => [...cartListItems, product])
         }
     }
     
     
-    const totalPrice = () => {
-        return cartListItems.reduce((acc, product) => ( acc + (product.quantity * product.price) ), 0);
-    }
+    // const totalPrice = () => {
+    //     return cartListItems.reduce((acc, product) => ( acc + (product.quantity * product.price) ), 0);
+    // }
 
     const deleteItem = (id) => {
         const copyCartListItems = [...cartListItems]
@@ -30,6 +31,7 @@ const CartProvider = ({children}) => {
         
     const cleanCartProducts = () => {
         setCartListItems([])
+        setTotalPrice(0)
     }
     
 

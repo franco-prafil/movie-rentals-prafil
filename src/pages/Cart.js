@@ -20,6 +20,10 @@ const Cart = () => {
         phone: '',
         email: ''
     })
+    
+    const date = new Date();
+    
+    
     const [order, setOrder] = useState({
         buyer: {},
         items: cartListItems.map( item => {
@@ -29,8 +33,8 @@ const Cart = () => {
                 price: item.price,
             }
         } ),
-        // date: "",
-        total: totalPrice
+        date: date,
+        total: totalPrice,
     })
     const [success, setSuccess] = useState()
     const navigate = useNavigate()
@@ -57,11 +61,11 @@ const Cart = () => {
         cleanCartProducts()
     }
 
-    // console.log(saveData);
+
         return(
             <Container> 
             <h2>Checkout: </h2>
-            {/* {console.log("order: ", order)} */}
+            {console.log("order: ", order)}
             <Table striped>
                 <thead className="table-dark">
                     <tr>
@@ -114,13 +118,13 @@ const Cart = () => {
                             <div className="div-button">
                                 <div className="price-total-cart p-1"> 
                                     <p className="d-flex align-items-center mb-0">Subtotal: </p>
-                                    <span > $ {totalPrice()}</span>
+                                    <span > $ {totalPrice}</span>
                                 </div>
                     
                                 <div className="price-total-cart p-1"> 
 
                                 <p className="d-flex align-items-center mb-0">Total</p>
-                                <span>$ {totalPrice()}</span>
+                                <span>$ {totalPrice}</span>
                                 </div>
                             </div>
                         </Container>
@@ -131,13 +135,16 @@ const Cart = () => {
                         </div>
                         </Container>    
             
-                        <Modal title={success ? 'Compra exitosa' : 'Formulario de contacto'} open={showModal} handleClose={() => setShowModal(false)}>
+                        <Modal className="" title={success ? 'Compra exitosa' : 'Formulario de contacto'} open={showModal} handleClose={() => setShowModal(false)}>
             {success ? (
-                <div>
-                    La order se genero con exito!
-                    Numero de orden: {success}
-                    <button onClick={finishOrder}>Aceptar</button>
-                </div>
+                <Container>
+                    <div className="mb-4">
+                        <p>La orden se ha generada con exito</p>
+                        <p>Número de orden: </p>
+                        <span className="order-id"> "{success}" </span>
+                    </div>
+                    <Button className='mb-2' variant="dark" onClick={finishOrder}>Aceptar</Button>
+                </Container>
             ) : (
                 <form className="form-contact" onSubmit={handleSubmit}>
                     <TextField 
@@ -164,7 +171,7 @@ const Cart = () => {
                         variant="outlined" 
                         onChange={handleChange}
                     />
-                    <button type="submit">Enviar</button>
+                    <Button type="submit" className='mb-2' variant="dark">Enviar</Button>
                 </form>
             )}
             
