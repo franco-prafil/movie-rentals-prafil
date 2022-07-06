@@ -9,38 +9,51 @@ const CartProvider = ({children}) => {
     const addProductToCart = (product) => {
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
         if(!isInCart) {
-            // console.log("se agrego el producto:", product)
-            setTotalPrice(totalPrice + product.price)
-            localStorage.setItem('products', JSON.stringify([...cartListItems, product]))
+            setTotalPrice(totalPrice + (product.price * product.quantity))
+            saveToLocalStorage([...cartListItems, product])
             return setCartListItems(cartListItems => [...cartListItems, product])
         }
     }
+
+    const saveToLocalStorage = (data) => {
+        localStorage.setItem('products', JSON.stringify(data))
+    }
+
+    const getLocalStorage = () => {
+        const data = localStorage.getItem('products')
+        return JSON.parse(data)
+    }
     
-    
-    // const totalPrice = () => {
-    //     return cartListItems.reduce((acc, product) => ( acc + (product.quantity * product.price) ), 0);
-    // }
+    const calcTotalPrice = (data) => {
+         return data.reduce((acc, product) => ( acc + (product.quantity * product.price) ), 0);
+    }
 
     const deleteItem = (id) => {
         const copyCartListItems = [...cartListItems]
         const deleteItemCart = copyCartListItems.filter((product) => product.id !== id);
+        const deletedItem = copyCartListItems.find((product) => product.id === id);
         setCartListItems(deleteItemCart);
-    
+        setTotalPrice(totalPrice - (deletedItem.price * deletedItem.quantity))
+        saveToLocalStorage(deleteItemCart)
         
     };
-        
+
     const cleanCartProducts = () => {
         setCartListItems([])
         setTotalPrice(0)
+        saveToLocalStorage(null)
     }
-    
 
     const data = {
         cartListItems,
         addProductToCart,
         totalPrice,
         deleteItem,
-        cleanCartProducts
+        cleanCartProducts,
+        getLocalStorage,
+        setCartListItems,
+        calcTotalPrice,
+        setTotalPrice
     }
 
     return(

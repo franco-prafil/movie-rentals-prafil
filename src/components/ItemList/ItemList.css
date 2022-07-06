@@ -1,4 +1,15 @@
 .direction-item{
     display: flex;
     justify-content: space-around;
+    text-align: -webkit-center!important;
+}
+
+div .swiper-button-next{
+    color: grey;
+    right: 0;
+}
+
+div .swiper-button-prev{
+    color: gray;
+    left: 0;
 }

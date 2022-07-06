@@ -3,12 +3,9 @@ import { useState, useContext } from 'react'
 import { Button, Container  } from 'react-bootstrap';
 import CartContext from '../../context/CartContext'
 
-const ItemListCount = ({stock, product, setShowButton}) => {
+const ItemCount = ({stock, product, setShowButton}) => {
     const [count, setCount] = useState(1)
     const {addProductToCart} = useContext(CartContext)
-    // console.log("este es el producto", product);
-    
-    // const {title, category, image, price, stock, id} = product;
 
     const addCount = () => {
         if(count < stock) {
@@ -22,18 +19,16 @@ const ItemListCount = ({stock, product, setShowButton}) => {
     }
     return(
         <Container>
-                            <h5 className='align-item-center mt-2'>Cantidad de Días</h5>
+            <h6 className='align-item-center mt-2'>Cantidad de Días</h6>
             <div className='d-flex justify-content-center p-2 count-item'>
-                            <Button className='p-1' variant='outline-dark' onClick={removeCount}>-</Button>
-                            <p className='align-item-center'>{count}</p>
-                            <Button className='p-1' variant='outline-dark' onClick={addCount}>+</Button>
-                        </div>
-                        <Button className='mb-2'  onClick={() => {addProductToCart({...product, quantity: count}); setShowButton(true)}} variant="dark">Agregar Producto</Button>
-                        
-
+                <Button className='p-1' variant='outline-dark' onClick={removeCount}>-</Button>
+                <p className='align-item-center'>{count}</p>
+                <Button className='p-1' variant='outline-dark' onClick={addCount}>+</Button>
+            </div>
+            <Button className='mb-2 fs-7'  onClick={() => {addProductToCart({...product, quantity: count}); setShowButton(true)}} variant="dark">Agregar Producto
+            </Button>
         </Container>
-
     )
 }
 
-export default ItemListCount
+export default ItemCount

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // COMPONENTES
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Detalle from "./pages/Detalle";
 import CategoryItemList from "./pages/CategoryItemList";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/item/:id" element={<Detalle />} />
             <Route path="/cart" element= {<Cart />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </CartProvider>
     </div>

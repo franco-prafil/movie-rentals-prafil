@@ -11,14 +11,12 @@ const ItemDetailContainer = () =>{
     const { id } = useParams()
     const [product, setProduct] = useState ({})
 
-
     useEffect(() => {
         getProduct()
         .then((prod) => {
             setProduct(prod)
         })
     }, [id]);
-
 
     const getProduct = async () => {
         const docRef = doc (db, "productos", id)
@@ -30,8 +28,7 @@ const ItemDetailContainer = () =>{
 
     return(
         <>
-            {Object.keys(product).length > 0 && <ItemDetail data={product}/>}
-
+        {Object.keys(product).length > 0 && <ItemDetail data={product}/>}
         </>
     )
 };

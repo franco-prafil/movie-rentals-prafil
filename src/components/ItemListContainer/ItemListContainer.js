@@ -4,27 +4,12 @@ import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from '../../utils/firebaseConfig';
 
-import { Container } from "react-bootstrap";
 import ItemList from "../ItemList/ItemList";
-// import getProducts from "../../utils/customFetch";
 
 
 const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
-    
-    // useEffect(()=> {
-    //     getProducts()
-    //     .then((response)=>{
-    //         setProducts(response)
-    //     })
-    //     .catch((err)=>{
-
-    //     })
-    //     .finally(()=>{
-
-    //     })
-    // })
 
     useEffect(()=> {
         setProducts([]);
@@ -53,12 +38,12 @@ const ItemListContainer = () => {
 
     return (
         <> 
-        <Container> 
+        <div className='m-5'> 
         <div>
                 <ItemList products={products}/>
             
         </div>
-        </Container>
+        </div>
         </>
     )
 }
